@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutto Premium | Fase 2 Definitiva</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="icon-192.png">
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="burger-logo"></div>
+  <h1>Tutto Premium</h1>
+  <p>Food Experience</p>
+</div>
+
+<!-- HEADER -->
+<header class="topbar">
+  <div class="logo"><h1 class="brand">🍔 Tutto Premium</h1></div>
+  <nav class="tabs">
+    <button onclick="filterMenu('burgers')" class="active">Hamburguesas</button>
+    <button onclick="filterMenu('pizzas')">Pizzas</button>
+    <button onclick="filterMenu('bebidas')">Bebidas</button>
+    <button onclick="filterMenu('postres')">Postres</button>
+    <button onclick="filterMenu('all')">Todo</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>Delivery Premium</h2>
+    <p>Pedí desde tu celular 🔥</p>
+    <button class="btn-main" onclick="getLocation()">📍 Activar Ubicación</button>
+    <p id="locationText">Ubicación no seleccionada</p>
+  </div>
+  <img src="hero.jpg" class="hero-img" alt="Hero">
+</section>
+
+<!-- PRODUCTOS -->
+<main class="menu">
+  <h2 class="section-title">Nuestros Productos</h2>
+  <div class="grid" id="productsGrid"></div>
+</main>
+
+<!-- TOPPINGS -->
+<section id="toppingsSection" style="display:none;">
+  <h3>➕ Elegí tus toppings</h3>
+  <div id="toppingsButtons"></div>
+</section>
+
+<!-- CARRITO -->
+<section class="cart">
+  <h2>🛒 Tu Pedido <span id="cartCount">0</span></h2>
+  <div id="cartItems"></div>
+  <h3>Total: <span id="totalPrice">$0</span></h3>
+  <div class="cart-actions">
+    <button class="btn-whatsapp" onclick="sendWhatsApp()">📲 Enviar Pedido por WhatsApp</button>
+    <button class="btn-clear" onclick="clearCart()">Vaciar Carrito</button>
+  </div>
+</section>
+
+<!-- PANEL ADMIN -->
+<section id="adminPanel" style="display:none;">
+  <h2>🔧 Panel Admin</h2>
+  <p>Contraseña: <input type="password" id="adminPass"><button onclick="loginAdmin()">Entrar</button></p>
+  <div id="adminContent"></div>
+</section>
+
+<footer>
+<p>🔥 Tutto App Premium © 2026</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+</body>
+</html>
